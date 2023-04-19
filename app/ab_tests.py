@@ -1,6 +1,8 @@
 import random
 from scipy import stats
 import pandas as pd
+from app import db
+from app.models import User
 
 
 class ABTest:
@@ -17,6 +19,19 @@ class ABTest:
 
     def register_conversion(self, user_id):
         self.data.loc[self.data['user_id'] == user_id, 'conversion'] = 1
+
+    def assign_user(self, user_id):
+        variant = random.choice(self.variants)
+        user = User(id=user_id, variant=variant)
+        db.session.add(user)
+        db.session.commit()
+        return variant
+
+    def register_conversion(self, user_id):
+        user = User.query.get(user_id)
+        if user:
+            user.conversion = True
+            db.session.commit()
 
     def analyze_results(self):
         results = {}

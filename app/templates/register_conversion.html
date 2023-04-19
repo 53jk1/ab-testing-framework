@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Register Conversion</h1>
+<form method="post">
+    <label for="user_id">User ID:</label>
+    <input type="text" id="user_id" name="user_id" required>
+    <button type="submit">Register Conversion</button>
+</form>
+<p><a href="{{ url_for('index') }}">Back to home</a></p>
+{% endblock %}
