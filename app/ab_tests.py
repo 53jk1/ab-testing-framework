@@ -2,6 +2,7 @@ import random
 from scipy import stats
 import pandas as pd
 
+
 class ABTest:
     def __init__(self, variants, duration, significance_level):
         self.variants = variants
