@@ -17,9 +17,6 @@ class ABTest:
         self.data = self.data.append({'user_id': user_id, 'variant': variant, 'conversion': 0}, ignore_index=True)
         return variant
 
-    def register_conversion(self, user_id):
-        self.data.loc[self.data['user_id'] == user_id, 'conversion'] = 1
-
     def assign_user(self, user_id):
         variant = random.choice(self.variants)
         user = User(id=user_id, variant=variant)
