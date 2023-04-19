@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome to the AB Testing Framework</h1>
+<p>
+    To assign a new user, visit <a href="{{ url_for('assign_user') }}">/assign_user</a>
+</p>
+<p>
+    To register a conversion, visit <a href="{{ url_for('register_conversion') }}">/register_conversion</a>
+</p>
+<p>
+    To analyze results, visit <a href="{{ url_for('analyze_results') }}">/analyze_results</a>
+</p>
+{% endblock %}
